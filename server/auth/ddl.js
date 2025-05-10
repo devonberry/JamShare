@@ -1,4 +1,4 @@
-const {pg} = require("./db_connect.js")
+const { pg } = require("./db_connect.js")
 
 const delete_all_tables = async () =>
     ["people"].forEach(e => pg.execute(`drop table if exists ${e}`));
@@ -10,5 +10,7 @@ CREATE TABLE people (\
     password text not null\
 );
 `
+
+console.log("Hello");
 //delete_all_tables();
-pg.execute(create_userbase);
+console.log(pg.execute(create_userbase));
