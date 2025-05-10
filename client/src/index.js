@@ -7,7 +7,7 @@ import './index.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const io = require('socket.io-client');
-const SERVER = 'http://localhost:3001';
+const SERVER = 'https://jamshare.ddns.net:3001';
 let socket = io(SERVER);
 export default socket; //https://stackoverflow.com/questions/48794919/reactjs-socket-io-best-way-to-handle-socket-connection
 
@@ -24,6 +24,9 @@ ReactDOM.render(
         <Route path='/room' element={<Room />} />
         <Route path='/signup2' element={<MorgSignup />} />
         <Route path='/signin2' element={<MorgSignin />} />
+        <Route path='/.wellknown/acme-challenge/a-string' Component={<link>
+
+        </link>} />
       </Routes>
       <link
         rel='stylesheet'

@@ -1,5 +1,5 @@
 import io from 'socket.io-client';
-let socket = io('http://localhost:3001');
+let socket = io('https://jamshare.ddns.net:3001');
 export default socket; //https://stackoverflow.com/questions/48794919/reactjs-socket-io-best-way-to-handle-socket-connection
 
 // import io from 'socket.io-client';

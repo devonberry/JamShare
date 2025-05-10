@@ -42,8 +42,18 @@ app.post('/auth/signin', async (req, res) => {
 
 ///// end auth
 
+const privateKey = fs.readFileSync("/etc/letsencrypt/live/jamshare.ddns.net/privkey.pem", "utf8");
+const certificate = fs.readFileSync("/etc/letsencrypt/live/jamshare.ddns.net/fullchain.pem", "utf8");
+const ca = fs.readFileSync("/etc/letsencrypt/live/jamshare.ddns.net/chain.pem", "utf8");
+
+const credentials = {
+  key: privateKey,
+  cert: certificate,
+  ca: ca
+};
+
 //Server
-const server = http.createServer(app);
+const server = https.createServer(credentials, app);
 const io = Socket(server, {
   cors: {
     methods: ['GET', 'POST'],
