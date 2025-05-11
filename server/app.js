@@ -35,13 +35,14 @@ app.post('/auth/signup', async (req, res) => {
   res.set('Access-Control-Allow-Origin', '*');
   console.log("recieved");
   const [username, password] = ['username', 'password'].map((e) => req.body[e]);
-  res.send(await register_new_user(username, password));
+  res.sendStatus(await register_new_user(username, password));
 });
 
 app.post('/auth/signin', async (req, res) => {
   res.set('Access-Control-Allow-Origin', '*');
-  //const [username, password] = ['username', 'password'].map((e) => req.body[e]);
-  //res.send(await validate_creds(username, password));
+  console.log("recieved");
+  const [username, password] = ['username', 'password'].map((e) => req.body[e]);
+  res.sendStatus(await validate_creds(username, password));
 });
 
 ///// end auth
