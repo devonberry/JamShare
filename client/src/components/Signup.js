@@ -80,6 +80,21 @@ function Signup(props) {
         password: signin_psw,
       })
       .then((res) => {
+        console.log('Authenticated');
+      })
+      .catch((err) => console.log(err));
+  };
+
+  /*
+  const handleSignin = (e) => {
+    e.preventDefault();
+
+    axios
+      .post('/auth/signin', {
+        username: signin_usn,
+        password: signin_psw,
+      })
+      .then((res) => {
         if (res.data === true) {
           alert(`Thanks for signing in ${signin_usn}`);
           Cookies.set('username', signin_usn, {
@@ -95,6 +110,7 @@ function Signup(props) {
       })
       .catch((err) => console.log(err));
   };
+  */
 
   // render() {
   return (

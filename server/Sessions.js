@@ -24,8 +24,11 @@ class Sessions {
     );
 
     let dcUser = null;
-    dcUser = currentSession.disconnectClient(socket);
-    console.log('DCuser being removed from:', currentSession.sessionID, dcUser);
+    if (currentSession !== undefined) {
+      dcUser = currentSession.disconnectClient(socket);
+      console.log('DCuser being removed from:', currentSession.sessionID, dcUser);
+    }
+
 
     if (dcUser != null) {
       currentSession.sendClientsSessionsUsernameList(socket); //update remaining clients
@@ -37,13 +40,16 @@ class Sessions {
         currentSession.sessionID,
         currentSession.clients.getUsernames()
       );
-    } else
+    }
+    /*
+    else
       console.log(
         'error disconnecting user',
         dcUser.username,
         dcUser.socketID,
         currentSession.sessionID
       );
+    */
     // } catch (error){
     //   console.log("failed to disconnect user...\n",dcUser.username, dcUser.socketID, currentSession.sessionID, error);
     // }

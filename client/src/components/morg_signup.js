@@ -31,6 +31,7 @@ export class MorgSignup extends React.Component {
             username: this.state.username,
             password: this.state.password,
         }).then(res => {
+            console.log("initiating");
             if (res.data === true) {
                 alert(`Thanks for signing in ${this.state.username}`)
                 Cookies.set('username', this.state.username, {
