@@ -75,7 +75,10 @@ function Signup(props) {
           alert('Account name taken.');
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        alert('Account name taken.');
+      });
   };
 
   const handleSignin = (e) => {
@@ -99,11 +102,12 @@ function Signup(props) {
           });
 
           navToJoin(signin_usn);
-        } else {
-          alert('Account name taken.');
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        alert('Incorrect username or password');
+      });
   };
   return (
     <>
