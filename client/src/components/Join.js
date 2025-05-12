@@ -9,6 +9,8 @@ import Modal from 'react-bootstrap/Modal';
 import JamShareLogo from './assets/images/JamShareLogo.jpg';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import socket from '../index';
+import { Signout, } from './component_export';
+
 
 // Join or create a Jam session room with link ID
 function Join(props) {
@@ -104,8 +106,8 @@ function Join(props) {
       <div id='container' className={'bgcolor'}>
         <div className='banner'>
           <img className='jamshare-logo' src={JamShareLogo} alt='logo' />
-          <div>
-            
+          <div className='right'>
+            <Signout/>
           </div>
         </div>
         <br></br>

@@ -126,6 +126,13 @@ input [type=text], select {
     color: white;
 }
 
+.right {
+    display: flexbox;
+    position: relative;
+    left: 30%;
+    margin-top: 1.5%;
+}
+
 .centered {
     height: 100vh; /* Magic here */
     display: flex;
