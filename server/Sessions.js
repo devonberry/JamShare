@@ -79,11 +79,12 @@ class Sessions {
     // var sess = new Session();
     let sessionID = data.sessionID;
     console.log('user joining session:', data.username);
-    if (sessionID) {
-      var currentSession = this.sessions.get(sessionID);
-      //console.log('currentSession',currentSession);
+    var currentSession = this.sessions.get(sessionID);
+    //console.log('currentSession',currentSession);
+    if (sessionID && currentSession !== undefined) {
       currentSession.joinSession(socket, data.username);
-    } else {
+    }
+    else {
       socket.emit('join-session-fail', data.sessionID);
       console.log(
         'User %s attempted to join session %s which does not exist.',
