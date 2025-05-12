@@ -61,7 +61,7 @@ function Signup(props) {
       .then((res) => {
         console.log("res:", res);
         if (res.data === "OK") {
-          alert(`Thanks for signing in ${signup_usn}`);
+          alert(`Thanks for signing up ${signup_usn}`);
           Cookies.set('username', signup_usn, {
             expires: 1,
           });
@@ -87,39 +87,24 @@ function Signup(props) {
         password: signin_psw,
       })
       .then((res) => {
-        console.log('Authenticated');
-      })
-      .catch((err) => console.log(err));
-  };
-
-  /*
-  const handleSignin = (e) => {
-    e.preventDefault();
-
-    axios
-      .post('/auth/signin', {
-        username: signin_usn,
-        password: signin_psw,
-      })
-      .then((res) => {
-        if (res.data === true) {
+        console.log("res:", res);
+        if (res.data === "OK") {
           alert(`Thanks for signing in ${signin_usn}`);
           Cookies.set('username', signin_usn, {
             expires: 1,
           });
 
-          Cookies.set('sessionID', Math.random().toString(36).substr(2, 9), {
+          Cookies.set('sessionID', Math.random().toString(36).substring(2, 9), {
             expires: 1,
           });
 
           navToJoin(signin_usn);
-        } else alert('Unsuccessful login.');
+        } else {
+          alert('Account name taken.');
+        }
       })
       .catch((err) => console.log(err));
   };
-  */
-
-  // render() {
   return (
     <>
       <Modal show={showModal} onHide={handleClose} enforceFocus={true}>
