@@ -8,6 +8,9 @@ import JamShareLogo from './assets/images/JamShareLogo.jpg';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
+//axios config
+axios.defaults.baseURL = 'https://jamshare.ddns.net:3001';
+
 function Signup(props) {
   const [guest, setGuest] = useState('');
   const [showModal, setModal] = useState(false);
@@ -49,13 +52,15 @@ function Signup(props) {
 
   const handleSignup = (e) => {
     e.preventDefault();
+
     axios
       .post('/auth/signup', {
         username: signup_usn,
         password: signup_psw,
       })
       .then((res) => {
-        if (res.data === true) {
+        console.log("res:", res);
+        if (res.data === "OK") {
           alert(`Thanks for signing in ${signup_usn}`);
           Cookies.set('username', signup_usn, {
             expires: 1,
@@ -66,11 +71,28 @@ function Signup(props) {
           });
 
           navToJoin(signup_usn);
-        } else alert('Account name taken.');
+        } else {
+          alert('Account name taken.');
+        }
       })
       .catch((err) => console.log(err));
   };
 
+  const handleSignin = (e) => {
+    e.preventDefault();
+
+    axios
+      .post('/auth/signin', {
+        username: signin_usn,
+        password: signin_psw,
+      })
+      .then((res) => {
+        console.log('Authenticated');
+      })
+      .catch((err) => console.log(err));
+  };
+
+  /*
   const handleSignin = (e) => {
     e.preventDefault();
 
@@ -95,6 +117,7 @@ function Signup(props) {
       })
       .catch((err) => console.log(err));
   };
+  */
 
   // render() {
   return (
