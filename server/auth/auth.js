@@ -12,11 +12,8 @@ CREATE TABLE people (\
 const register_new_user = async (username, password) => {
     console.log(username, password)
     try {
-        console.log("got here");
         await pg.execute("insert into people (username,password) values ($1,$2)",
             [username, password]);
-
-        //await pg.execute("insert into people (username,password) values ('ddd','ddd')");
     }
     catch (err) {
         console.log("Failed to add new username");
@@ -28,15 +25,24 @@ const register_new_user = async (username, password) => {
 }
 
 const validate_creds = async (username, password) => {
-    const res = null;
+    let res = null;
     try {
         res = await pg.execute("select * from people where username = $1",
             [username]);
+
         const rows = res.rows[0];
-        return rows?.password ? rows.password === password : 400;
+
+        let isUser = rows?.password ? rows.password === password : 400;
+        if (isUser === true) {
+            return 200;
+        }
+        else {
+            return 500
+        }
+
     }
     catch (err) {
-        console.log("Failed to validate user")
+        console.log("Failed to validate user", err)
         return 500;
     }
 }

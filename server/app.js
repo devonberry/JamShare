@@ -26,20 +26,16 @@ app.get('/', function (request, response) {
 
 //Some cors and socket io things to make requests accepted from outsources
 app.post('/chat', function (request, response) {
-  //console.log(request.body);
-  response.set('Access-Control-Allow-Origin', '*');
 });
 
 //Auth
 app.post('/auth/signup', async (req, res) => {
-  res.set('Access-Control-Allow-Origin', '*');
   console.log("recieved");
   const [username, password] = ['username', 'password'].map((e) => req.body[e]);
   res.sendStatus(await register_new_user(username, password));
 });
 
 app.post('/auth/signin', async (req, res) => {
-  res.set('Access-Control-Allow-Origin', '*');
   console.log("recieved");
   const [username, password] = ['username', 'password'].map((e) => req.body[e]);
   res.sendStatus(await validate_creds(username, password));
