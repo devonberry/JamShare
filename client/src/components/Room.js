@@ -8,6 +8,7 @@ import './room.css';
 import JamShareLogo from './assets/images/JamShareLogo.jpg';
 import socket from '../index';
 import Viewer from './Viewer';
+import { LeaveRoom } from './component_export';
 
 function Room() {
   let {
@@ -66,6 +67,7 @@ function Room() {
         guest={guest}></Recorder>
       <div className='jybannerb'>
         Portland State University - JamShare - 2022
+        <LeaveRoom />
         <button className='about'>
           <a href="https://github.com/JamShare">About Us</a>
         </button>

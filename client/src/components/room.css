@@ -53,6 +53,27 @@
   overflow: hidden;
 }
 
+button.leave{
+  position:absolute;
+  top: 6px;
+  right: 100px;
+  background-color:  orange;
+  border: 3px solid orange; 
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 13pt;
+  text-align: center;
+  height: 30px;
+  width: auto;
+}
+
+button.leave a{
+  position:relative;
+  color:purple;
+  top: -4px;
+
+}
+
 button.about{
   position:absolute;
   top: 6px;

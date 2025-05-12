@@ -9,3 +9,5 @@ export { default as Join } from './Join';
 export { default as MorgSignup } from './morg_signup';
 export { default as MorgSignin } from './morg_signin';
 export { default as Participants } from './Participants';
+export { default as LeaveRoom } from './LeaveRoom';
+
