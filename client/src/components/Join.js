@@ -104,6 +104,9 @@ function Join(props) {
       <div id='container' className={'bgcolor'}>
         <div className='banner'>
           <img className='jamshare-logo' src={JamShareLogo} alt='logo' />
+          <div>
+            
+          </div>
         </div>
         <br></br>
         <br></br>
