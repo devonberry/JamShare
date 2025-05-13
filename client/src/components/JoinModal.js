@@ -5,7 +5,6 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import handleSubmit from './Join.js';
-import CopyToClipboard from 'react-copy-to-clipboard';
 function JoinModal(props) {
   const [copied, setCopied] = useState(false);
   const inputArea = useRef(null);
