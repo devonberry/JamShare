@@ -19,7 +19,7 @@ class Viewer extends React.Component {
         <div className='recordblock'>
             {React.Children.toArray(
                 records.map((r, i) => (
-                    <div className='ProjectSectionBlock'>
+                    <div className='ProjectSectionBlock' key={i}>
                         <div className='RoomComponentList ViewerComponentList' key={i}>
                             <img className='round' src={image1} width='50' height='50' alt=' UserImage '></img>
                               <span>

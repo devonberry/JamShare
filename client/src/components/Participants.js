@@ -2,7 +2,7 @@ import image2 from './assets/images/user.jpg';
 import image4 from './assets/images/dragup.jpg';
 import image3 from './assets/images/add.jpg';
 import image5 from './assets/images/dragdn.jpg';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import socket from "../index";
 
 function Participants(props) {

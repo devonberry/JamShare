@@ -1,10 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client'
 import { Signup, Room, Join, MorgSignup, MorgSignin, } from './components/component_export';
 import registerServiceWorker from './registerServiceWorker';
 import './fonts/Indie_Flower/IndieFlower-Regular.ttf';
 import './index.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router';
 
 const io = require('socket.io-client');
 const SERVER = 'https://jamshare.ddns.net:3001';
@@ -15,7 +14,7 @@ socket.on('error', (error) => {
   console.log('server error', error);
 });
 
-ReactDOM.render(
+createRoot(document.getElementById('root')).render(
   <div>
     <BrowserRouter>
       <Routes>
@@ -37,6 +36,5 @@ ReactDOM.render(
       <script src='https://unpkg.com/react-copy-to-clipboard/build/react-copy-to-clipboard.js'></script>
     </BrowserRouter>
   </div>,
-  document.getElementById('root')
 );
 registerServiceWorker();

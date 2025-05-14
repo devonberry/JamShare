@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import JamShareLogo from './assets/images/JamShareLogo.jpg';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
+//import { CopyToClipboard } from 'react-copy-to-clipboard';
 import socket from '../index';
 import { Signout, } from './component_export';
 
@@ -96,9 +96,11 @@ function Join(props) {
           </Container>
         </Modal.Body>
         <Modal.Footer className='purplebg'>
-          <CopyToClipboard onCopy={onCopy} text={sessionID}>
-            <Button onClick={copyLink}>Copy to clipboard</Button>
-          </CopyToClipboard>
+          {/*
+            <CopyToClipboard onCopy={onCopy} text={sessionID}>
+              <Button onClick={copyLink}>Copy to clipboard</Button>
+            </CopyToClipboard>
+          */}
           <Button onClick={joinSession}>Join Session</Button>
           <Button onClick={handleClose}>Close</Button>
         </Modal.Footer>
@@ -107,7 +109,7 @@ function Join(props) {
         <div className='banner'>
           <img className='jamshare-logo' src={JamShareLogo} alt='logo' />
           <div className='right'>
-            <Signout/>
+            <Signout />
           </div>
         </div>
         <br></br>
