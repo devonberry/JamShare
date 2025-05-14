@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Chat from './Chat';
 import Recorder from './Recorder';
 import Participants from './Participants';
 import { useLocation } from 'react-router-dom';
 import './App.css';
-import './room.css';
 import JamShareLogo from './assets/images/JamShareLogo.jpg';
 import socket from '../index';
 import Viewer from './Viewer';
-import { LeaveRoom } from './component_export';
+import { LeaveRoom, JamShareYear } from './component_export';
+import './room.css';
 
 function Room() {
   let {
@@ -66,7 +66,7 @@ function Room() {
         sessionID={sessionID}
         guest={guest}></Recorder>
       <div className='jybannerb'>
-        Portland State University - JamShare - 2022
+        <JamShareYear />
         <LeaveRoom />
         <button className='about'>
           <a href="https://github.com/JamShare">About Us</a>

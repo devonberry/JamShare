@@ -8,3 +8,4 @@ export { default as Viewer } from './Viewer';
 export { default as Join } from './Join';
 export { default as Participants } from './Participants';
 export { default as LeaveRoom } from './LeaveRoom';
+export { default as JamShareYear } from './JamShareYear';

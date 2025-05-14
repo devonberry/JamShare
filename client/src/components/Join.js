@@ -9,7 +9,8 @@ import Modal from 'react-bootstrap/Modal';
 import JamShareLogo from './assets/images/JamShareLogo.jpg';
 //import { CopyToClipboard } from 'react-copy-to-clipboard';
 import socket from '../index';
-import { Signout, } from './component_export';
+import { Signout, JamShareYear } from './component_export';
+import './room.css';
 
 // Join or create a Jam session room with link ID
 function Join(props) {
@@ -151,7 +152,7 @@ function Join(props) {
       </div>
 
       <div className='jybannerb'>
-        JamShare - {year}
+        <JamShareYear />
       </div>
     </>
   );
