@@ -35,12 +35,11 @@
     "simple-peer": "^9.11.1",
     "socket.io": "^4.8.1",
     "socket.io-client": "^4.8.1",
-    "socket.io-stream": "^0.9.1",
     "stream": "^0.0.3",
     "styled-components": "^6.1.18",
     "url": "^0.11.4",
     "util": "^0.12.5",
-    "web-vitals": "^5.0.0",
+    "web-vitals": "^5.0.1",
     "webpack": "^5.99.8",
     "webpack-cli": "^6.0.1",
     "webrtc-adapter": "^9.0.3",
@@ -52,9 +51,6 @@
     },
     "svgo": {
       "nth-check": ">=2.0.1"
-    },
-    "socket.io-stream": {
-      "debug": ">2.6.8"
     },
     "braces": ">=3.0.3",
     "micromatch": ">=4.0.8"
