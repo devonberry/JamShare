@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import socket from '../index';
 function Chat(props) {
   const initialValues = {
@@ -34,7 +34,6 @@ function Chat(props) {
 
     socket.on('new-chat-message', (data) => {
       console.log('new-chat-messaged:', data);
-
       setChat((oldChats) => [data, ...oldChats]);
     });
   }, []);
@@ -52,7 +51,6 @@ function Chat(props) {
         justMsg: message,
         msg: newMsg,
       };
-      //chat.push(msgValues);
       setChat((oldChats) => [msgValues, ...oldChats]);
       var data = {
         username: props.guest,

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -11,7 +11,6 @@ import JamShareLogo from './assets/images/JamShareLogo.jpg';
 import socket from '../index';
 import { Signout, } from './component_export';
 
-
 // Join or create a Jam session room with link ID
 function Join(props) {
   const [sessionID, setSessionID] = useState('');
@@ -22,6 +21,7 @@ function Join(props) {
   const navigate = useNavigate();
   //state passed in from Signup.js
   const guest = useLocation().state.usn;
+  const year = new Date().getFullYear();
 
   console.log('join username: ', guest);
 
@@ -137,8 +137,6 @@ function Join(props) {
             <Col></Col>
             <Col>
               <h2>Create New Jam Session</h2>
-              {/* <div className='purple-new-id'> */}
-              {/* <br></br> */}
               <Button
                 variant='flat'
                 className='purple-new-id'
@@ -146,7 +144,6 @@ function Join(props) {
                 onClick={createSession}>
                 <h2>Create New ID</h2>
               </Button>
-              {/* </div> */}
             </Col>
             <Col></Col>
           </Row>
@@ -154,7 +151,7 @@ function Join(props) {
       </div>
 
       <div className='jybannerb'>
-        Portland State University - JamShare - 2022
+        JamShare - {year}
       </div>
     </>
   );
