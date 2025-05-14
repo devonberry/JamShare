@@ -10,17 +10,11 @@
   },
   "dependencies": {
     "body-parser": "^2.2.0",
-    "client-sessions": "^0.8.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
-    "debug": "~4.4.1",
     "express": "^5.1.0",
-    "http-errors": "^2.0.0",
-    "morgan": "~1.10.0",
-    "node-blob": "^0.0.2",
     "path": "^0.12.7",
     "pg": "^8.16.0",
-    "pug": "^3.0.3",
     "socket.io": "^4.8.1"
   },
   "author": "",
