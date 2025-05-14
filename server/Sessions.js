@@ -29,7 +29,6 @@ class Sessions {
       console.log('DCuser being removed from:', currentSession.sessionID, dcUser);
     }
 
-
     if (dcUser != null) {
       currentSession.sendClientsSessionsUsernameList(socket); //update remaining clients
       socket.disconnect();
@@ -41,18 +40,6 @@ class Sessions {
         currentSession.clients.getUsernames()
       );
     }
-    /*
-    else
-      console.log(
-        'error disconnecting user',
-        dcUser.username,
-        dcUser.socketID,
-        currentSession.sessionID
-      );
-    */
-    // } catch (error){
-    //   console.log("failed to disconnect user...\n",dcUser.username, dcUser.socketID, currentSession.sessionID, error);
-    // }
   }
 
   streamStarting(data, socket) {
@@ -72,15 +59,12 @@ class Sessions {
     this.sessions.set(genSessionID, session); //maps session object with key=genSessionID
     console.log('new session created', this.sessions.get(genSessionID));
     socket.emit('create-session-response', genSessionID); //emit to only that client
-    // this.findSessionIDFromSocketID(socket.id);
   }
 
   joinSession(data, socket) {
-    // var sess = new Session();
     let sessionID = data.sessionID;
     console.log('user joining session:', data.username);
     var currentSession = this.sessions.get(sessionID);
-    //console.log('currentSession',currentSession);
     if (sessionID && currentSession !== undefined) {
       currentSession.joinSession(socket, data.username);
     }
@@ -120,8 +104,6 @@ class Sessions {
   };
 
   generateSessionID() {
-    // var crypto = require("crypto");
-    // var id = crypto.randomBytes(20).toString('hex');
     let length = 20;
     let genSessionID = '';
     let characters =
@@ -155,11 +137,6 @@ class Sessions {
     currentSession.sessionEmitChatHistory(data, socket);
   }
 
-  // participantsOrder(data, socketID) {
-  //   let session = this.findSessionIDFromSocketID(socketID);
-  //   session.updateParticipants(data);
-  // }
-
   getUserList(sessionID) {
     console.log('Get Userlist', sessionID);
     var currentSession = this.sessions.get(sessionID);
@@ -178,10 +155,6 @@ class Session {
     this.gameSession = false;
   }
 
-  // retSessionIDandClients(){
-  //   return [this.sessionID, this.clients.retclients()];
-  // }
-
   sessionEmitChatmessage(data, socket) {
     let newdata = {
       username: data.username,
@@ -189,10 +162,7 @@ class Session {
       msg: data.msg,
     };
 
-    //socket.emit('new-chat-message', newdata);
     socket.to(this.sessionID).emit('new-chat-message', newdata); //sends to everyone else in the session
-    //socket.emit('new-chat-message', newdata); //required to send back to client that sent the update
-    //socket.broadcast.to(this.sessionID).emit('new-chat-message', newdata);
     this.sessionChatHistory[this.sessionID] = this.sessionChatHistory[
       this.sessionID
     ]
@@ -207,8 +177,6 @@ class Session {
   }
   sessionEmitChatHistory(data, socket) {
     socket.emit('new-chat-History', this.sessionChatHistory[this.sessionID]);
-    //socket.broadcast.to(data.sessionID).emit('message', console.log(`${data.guest} has joined the room ${data.sessionID}`))
-    //socket.emit('joinResponse', socketHistory[socketRoom]);
   }
   disconnectClient(socket) {
     console.log('session disconnectclient', socket.id);
@@ -217,22 +185,13 @@ class Session {
       console.log('client removed:', removedclient);
       return removedclient;
     } catch (error) {
-      // socket.emit('disconnect-session-failed');
       console.error('failed to disconnected user', socket.id, error);
       return null;
     }
   }
 
-  // updateParticipants(data) {
-  //   console.log('updating paricipants order');
-  //   socket.brodcast.to(sessionID).emit('participants-order', data);
-  // }
-
-  //notifyStreamStart(index, socket) {}
-
   joinSession(socket, username) {
     try {
-      // console.log('Using joinSession no S);
       this.clients.addClient(socket.id, username);
       socket.join(this.sessionID);
       //send usernames to client from client object
@@ -270,17 +229,14 @@ class Session {
 
   startGameSession(socket) {
     this.gameSession = true;
-    // socket.brodcast.to(sessionID).emit('game-started');
   }
 
   startPlayerStream(socket) {
     nextSID = this.clients.getNextPlayer();
-    // socket.to(nextSID).emit('start-stream');
   }
 
   sendStreams(socket) {
     usernames = this.clients.getUsernames();
-    // socket.brodcast.to(sessionID).emit('stream-names', streams);
   }
 
   sendLatency(start_time) {
