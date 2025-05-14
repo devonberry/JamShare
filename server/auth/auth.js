@@ -55,13 +55,6 @@ const remove_user = async (username) => {
     return 400;
 }
 
-const test = async () => {
-    //const r = await validate_password("a", "b");
-    //const r = await register_new_user("morg", "b");
-    //const r = await validate_password("a", "b");
-}
-test()
-
 module.exports = {
     register_new_user,
     validate_creds,

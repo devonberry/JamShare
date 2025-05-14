@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client'
-import { Signup, Room, Join, MorgSignup, MorgSignin, } from './components/component_export';
+import { Signup, Room, Join } from './components/component_export';
 import registerServiceWorker from './registerServiceWorker';
 import './fonts/Indie_Flower/IndieFlower-Regular.ttf';
 import './index.css';
@@ -21,8 +21,6 @@ createRoot(document.getElementById('root')).render(
         <Route exact path='/' element={<Signup />} />
         <Route path='/join' element={<Join />} />
         <Route path='/room' element={<Room />} />
-        <Route path='/signup2' element={<MorgSignup />} />
-        <Route path='/signin2' element={<MorgSignin />} />
         <Route path='/.wellknown/acme-challenge/a-string' Component={<link>
 
         </link>} />
